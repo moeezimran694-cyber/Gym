@@ -79,55 +79,48 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
 
       {/* Main White Navbar */}
       <nav
-        className={`px-4 sm:px-8 py-3.5 transition-all duration-300 ${
+        className={`w-full px-6 lg:px-8 py-3.5 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-xs border-b border-neutral-200/90 py-3'
+            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-200/90'
             : 'bg-white/90 backdrop-blur-sm border-b border-neutral-200/60'
         }`}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Logo */}
-          <a href="#hero" className="group">
+        {/* Single cohesive horizontal flex container */}
+        <div className="w-full flex items-center justify-between gap-6">
+          
+          {/* Left Block (Brand / Logo) */}
+          <a href="#hero" className="flex items-center shrink-0 group">
             <MuscleEmpireLogo size="md" />
           </a>
 
-          {/* Desktop Nav links */}
-          <div className="hidden xl:flex items-center gap-6">
+          {/* Center Block (Navigation Links) */}
+          <div className="hidden xl:flex items-center justify-center gap-6 2xl:gap-7 flex-1 px-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-xs font-semibold text-neutral-600 hover:text-neutral-900 transition-colors uppercase tracking-wider relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-red-600 hover:after:w-full after:transition-all after:duration-300"
+                className="whitespace-nowrap text-xs font-bold text-neutral-700 hover:text-red-600 transition-colors uppercase tracking-wider py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-red-600 hover:after:w-full after:transition-all after:duration-300"
               >
                 {link.name}
               </a>
             ))}
           </div>
 
-          {/* CTA & Actions */}
-          <div className="hidden sm:flex items-center gap-3">
-            <a
-              href={MUSCLE_EMPIRE_LOCATION.phoneTel}
-              className="px-4 py-2.5 rounded-md bg-white text-neutral-900 border border-neutral-300 text-xs font-semibold uppercase tracking-wider hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all duration-300 flex items-center gap-2 group shadow-2xs"
-            >
-              <Phone className="w-3.5 h-3.5 text-red-600 group-hover:text-white transition-colors shrink-0" />
-              <span>CALL NOW:</span>
-              <span className="font-extrabold text-neutral-900 group-hover:text-white transition-colors">{MUSCLE_EMPIRE_LOCATION.phone}</span>
-            </a>
-
+          {/* Right Block (Action Button) - Only JOIN THE GYM button */}
+          <div className="hidden sm:flex items-center shrink-0">
             <button
               onClick={onOpenJoinModal}
-              className="px-5 py-2.5 rounded-md bg-neutral-900 text-white text-xs font-semibold uppercase tracking-wider shadow-sm hover:bg-neutral-800 transition-all flex items-center gap-1.5 group cursor-pointer border border-neutral-800"
+              className="whitespace-nowrap inline-flex items-center justify-center gap-1.5 px-6 py-2.5 rounded-xl bg-neutral-900 text-white text-xs font-bold uppercase tracking-wider shadow-sm hover:bg-neutral-800 transition-all cursor-pointer border border-neutral-800 group"
             >
               <span>JOIN THE GYM</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden p-2 rounded-md bg-neutral-100 text-neutral-800 hover:bg-neutral-200 transition-colors"
+            className="xl:hidden p-2.5 rounded-xl bg-neutral-100 text-neutral-800 hover:bg-neutral-200 transition-colors"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

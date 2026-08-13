@@ -20,6 +20,7 @@ export interface GalleryItem {
 export const MUSCLE_EMPIRE_LOCATION = {
   name: "Muscle Empire GYM",
   tagline: "BUILD STRENGTH. BUILD CONFIDENCE.",
+  logoUrl: "https://cdn.phototourl.com/free/2026-08-13-ab398168-65af-4fc4-ade1-48118bd3a15f.jpg",
   address: "Lahore - Sheikhupura - Faisalabad Road, Mana Wala, Manawala, Pakistan",
   shortAddress: "Mana Wala, Manawala",
   phone: "0307 3855404",
