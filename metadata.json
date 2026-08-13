@@ -1,0 +1,6 @@
+{
+  "name": "Muscle Empire GYM",
+  "description": "Premium athletic website for Muscle Empire GYM in Mana Wala, Manawala. Build strength, build confidence with personal training, group fitness, and online classes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
