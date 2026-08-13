@@ -28,10 +28,10 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onOpenJoinModa
                 YOUR NEXT REP STARTS HERE
               </div>
 
-              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-neutral-900 leading-none mb-6">
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-neutral-900 leading-[1.05] mb-6">
                 READY TO BUILD<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-900 via-neutral-800 to-red-600">
-                  YOUR EMPIRE?
+                <span>
+                  YOUR <span className="text-red-600">EMPIRE?</span>
                 </span>
               </h2>
 

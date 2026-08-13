@@ -30,10 +30,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
             </div>
 
             {/* Large Bold Heading */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight text-neutral-900 leading-[0.98] mb-6">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black uppercase tracking-tight text-neutral-900 leading-[1.02] mb-6">
               BUILD YOUR<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-900 via-neutral-800 to-red-600">
-                STRONGEST SELF.
+              <span>
+                STRONGEST <span className="text-red-600">SELF.</span>
               </span>
             </h1>
 
