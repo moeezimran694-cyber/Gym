@@ -9,7 +9,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
   return (
-    <section id="hero" className="relative pt-32 sm:pt-36 pb-16 sm:pb-24 bg-white text-neutral-900 overflow-hidden">
+    <section id="hero" className="relative pt-24 sm:pt-28 pb-16 sm:pb-24 bg-white text-neutral-900 overflow-hidden">
       {/* Background Subtle Accent Gradients */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-r from-red-500/5 via-orange-500/5 to-amber-500/5 blur-3xl pointer-events-none rounded-full" />
 

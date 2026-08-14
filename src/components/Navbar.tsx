@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Clock, MapPin, Phone, ShieldCheck } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Phone } from 'lucide-react';
 import { MUSCLE_EMPIRE_LOCATION } from '../data/muscleEmpireData';
 import { MuscleEmpireLogo } from './MuscleEmpireLogo';
 
@@ -10,7 +10,6 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isOpenNow, setIsOpenNow] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,21 +17,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Simple current timing status check based on local time
-  useEffect(() => {
-    const checkOpenStatus = () => {
-      const now = new Date();
-      const hour = now.getHours();
-      // Open between 6 AM and 11:30 PM (23:30)
-      if (hour >= 6 && hour < 24) {
-        setIsOpenNow(true);
-      } else {
-        setIsOpenNow(false);
-      }
-    };
-    checkOpenStatus();
   }, []);
 
   const navLinks = [
@@ -49,34 +33,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Top micro banner on clean white/off-white */}
-      <div className="bg-neutral-50/95 backdrop-blur-sm border-b border-neutral-200/80 text-xs text-neutral-600 py-1.5 px-4 sm:px-8 flex flex-wrap justify-between items-center gap-2">
-        <div className="flex items-center gap-4 text-[11px] sm:text-xs">
-          <span className="flex items-center gap-1.5 font-normal">
-            <MapPin className="w-3.5 h-3.5 text-red-600 shrink-0" />
-            <span>{MUSCLE_EMPIRE_LOCATION.shortAddress}</span>
-          </span>
-          <a
-            href={MUSCLE_EMPIRE_LOCATION.phoneTel}
-            className="flex items-center gap-1.5 font-normal text-neutral-700 hover:text-red-600 transition-colors"
-          >
-            <Phone className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-            <span>Call Desk:</span>
-            <span className="font-extrabold text-neutral-900">{MUSCLE_EMPIRE_LOCATION.phone}</span>
-          </a>
-        </div>
-        <div className="flex items-center gap-3 ml-auto text-[11px] sm:text-xs">
-          <span className="hidden md:inline-flex items-center gap-1.5 font-semibold text-neutral-700 uppercase tracking-wider text-[10px]">
-            <ShieldCheck className="w-3.5 h-3.5 text-red-600" />
-            STRENGTH • DISCIPLINE • COMMUNITY
-          </span>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white border border-neutral-200 shadow-2xs font-normal">
-            <span className={`w-2 h-2 rounded-full ${isOpenNow ? 'bg-emerald-500 animate-pulse' : 'bg-amber-500'}`} />
-            {isOpenNow ? 'Open Today 6:00 AM – 11:30 PM' : 'Opens 6:00 AM'}
-          </span>
-        </div>
-      </div>
-
       {/* Main White Navbar */}
       <nav
         className={`w-full px-6 lg:px-8 py-3.5 transition-all duration-300 ${
@@ -130,7 +86,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
 
       {/* Mobile Menu Drawer (Pure White Theme) */}
       {mobileMenuOpen && (
-        <div className="xl:hidden fixed inset-x-0 top-[88px] bg-white border-b border-neutral-200 shadow-xl p-6 transition-all animate-in slide-in-from-top-2">
+        <div className="xl:hidden fixed inset-x-0 top-[65px] bg-white border-b border-neutral-200 shadow-xl p-6 transition-all animate-in slide-in-from-top-2">
           <div className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <a
